@@ -2,7 +2,7 @@
 
 require_once USR_VENDOR . 'doctrine/bootstrap.php';
 require_once USR_VENDOR . 'twig/bootstrap.php';
-
+/*
 // Create a message
 $message = new Message();
 $message->setText('Hello world');
@@ -27,7 +27,8 @@ $entityManager->remove($message);
 $entityManager->flush();
 
 echo "Message deleted!\n";
-/*
+*/
+
 echo $twig->render('index.html', [
-    'test' => 'success'
-]);*/
+    'title' => SITE_TITLE
+]);
