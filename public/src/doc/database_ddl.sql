@@ -1,0 +1,20 @@
+CREATE DATABASE mx_usernote;
+
+CREATE TABLE mx_usernote.users (
+	id		INT(11)			UNSIGNED NOT NULL AUTO_INCREMENT,
+	name	VARCHAR(255)	NOT NULL,
+	pass	VARCHAR(255)	NOT NULL,
+	
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE mx_usernote.notes (
+	id		INT(11)			UNSIGNED NOT NULL AUTO_INCREMENT,
+	user	INT(11)			UNSIGNED NOT NULL,
+	note	TEXT			NOT NULL,
+	date	DATETIME		NOT NULL,
+
+	PRIMARY KEY (id),
+	FOREIGN KEY (user)
+		REFERENCES mx_usernote.users (id)
+);
