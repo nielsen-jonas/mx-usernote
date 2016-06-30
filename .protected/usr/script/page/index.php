@@ -19,7 +19,7 @@ $entityManager->flush();
 echo 'Created note with ID ' . $note->getId() . "\n";
 */
 // Get all notes
-
+/*
 $notes = $entityManager->getRepository('Note')->findAll();
 
 echo "Listing all notes:\n";
@@ -27,7 +27,7 @@ foreach($notes as $note){
 	echo sprintf("- %s\n", $note->getDate()->format('Y-m-d H:i:s'));
 }
 echo "Done!\n";
-
+*/
 /*
 // Now delete it
 $entityManager->remove($user);
@@ -35,8 +35,10 @@ $entityManager->flush();
 
 echo "User deleted!\n";
 */
-/*
+
+$nav = require USR_FRAGMENT . 'header_navigation.php';
+
 echo $twig->render('index.html', [
-    'title' => SITE_TITLE
+    'title' => SITE_TITLE,
+    'header_navigation' => $nav
 ]);
-*/

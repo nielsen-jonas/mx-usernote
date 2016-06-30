@@ -7,24 +7,26 @@
 		{% endblock %}
 	</head>
 	<body>
-		<header>
-			{% block header %}
-				<h1>Header</h1>
-				<nav>
-					<h2>Navigation</h2>
-					<ul>
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Login</a></li>
-						<li><a href="#">Register</a></li>
-					</ul>
-				</nav>
-			{% endblock %}
-		</header>
-		<section><main>{% block content %}{% endblock %}</main></section>
-		<footer>
-			{% block footer %}
-				&copy; 2016 by Jonas Nielsen
-			{% endblock %}
-		</footer>
+		{% block body %}
+			<header>
+				{% block header %}
+					<h1>Header</h1>
+					<nav>
+						<h2>Navigation</h2>
+						<ul>
+							{% for element in header_navigation %}
+								<li><a href="{{ element.href }}">{{ element.page }}</a></li>
+							{% endfor %}
+						</ul>
+					</nav>
+				{% endblock %}
+			</header>
+			<section><main>{% block content %}{% endblock %}</main></section>
+			<footer>
+				{% block footer %}
+					&copy; 2016 by Jonas Nielsen
+				{% endblock %}
+			</footer>
+		{% endblock %}
 	</body>
 </html>

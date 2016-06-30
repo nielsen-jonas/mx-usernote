@@ -1,7 +1,7 @@
 <?php
 
 // Requests are mapped to scripts
-const REGEX_USER = '[a-z0-9_-]+';
+const REGEX_USER = '[a-zA-Z0-9_-]+';
 const ROUTE = [
     'default' => 'page/default',
     '/' => 'page/index',
