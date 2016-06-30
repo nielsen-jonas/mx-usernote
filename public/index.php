@@ -10,5 +10,5 @@
  */
 
 // Initialization script
-define('DIR', file_exists('../.protected') ? '../.protected/' : '.protected/');
+define('DIR', file_exists(__DIR__ . '/../.protected') ? __DIR__ . '/../.protected/' : __DIR__ . '/.protected/');
 require_once DIR . '_system/core.php';
