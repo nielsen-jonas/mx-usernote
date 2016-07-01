@@ -11,8 +11,32 @@
 
 {% block content %}
 	<h1>Login</h1>
+	<form id="form-login" method="POST">
+		<div>
+			<label for="username">Username</label>
+			<input id="username" type="text" value="{{ username }}">
+		</div>
+		<div>
+			<label>Password</label>
+			<input type="password" name="password">
+		</div>
+		<input type="submit" value="Login">
+	</form>
 {% endblock %}
 
 {% block footer %}
 	{{ parent() }}
+	<script
+		src="https://code.jquery.com/jquery-3.0.0.min.js"
+		integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="
+		crossorigin="anonymous"
+	></script>
+	<script>
+		$(function(){
+			$('#form-login').submit(function(){
+				var username = $('#username').val();
+				$(this).attr('action', '{{ form_action }}' + username);
+			});
+		});
+	</script>
 {% endblock %}
