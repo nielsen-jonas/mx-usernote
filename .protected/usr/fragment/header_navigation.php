@@ -1,6 +1,6 @@
 <?php
 
-return [
+$nav = [
 	[
 		'page' => 'Home',
 		'href' => scr_url('page/index')
@@ -14,3 +14,13 @@ return [
 		'href' => scr_url('page/register')
 	]
 ];
+
+session_start();
+if (isset($_SESSION['logged-in'])){
+	$nav[] = [
+		'page' => 'Log out',
+		'href' => scr_url('action/logout')
+	];
+}
+
+return $nav;
