@@ -4,21 +4,27 @@
 		{% block head %}
 			<meta charset="UTF-8">
 			<title>{% block title %}{% endblock %}</title>
+			<script src="https://use.fontawesome.com/ca8c9f0754.js"></script>
 		{% endblock %}
 	</head>
 	<body>
 		{% block body %}
 			<header>
 				{% block header %}
-					<h1>Header</h1>
+					<h1>UserNote</h1>
 					<nav>
 						<h2>Navigation</h2>
 						<ul>
 							{% for element in header_navigation %}
-								<li><a href="{{ element.href }}">{{ element.page }}</a></li>
+								<li><a href="{{ element.href }}"><span class="{{ element.icon }}"></span> {{ element.page }}</a></li>
 							{% endfor %}
 						</ul>
 					</nav>
+					<ul>
+						{% for user in users %}
+							<li><a href="{{ user.href }}"><span class="fa fa-user fa-1x"></span> {{ user.name }}</a></li>
+						{% endfor %}
+					</ul>
 				{% endblock %}
 			</header>
 			<section><main>{% block content %}{% endblock %}</main></section>

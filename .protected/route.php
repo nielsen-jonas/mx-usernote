@@ -7,14 +7,21 @@ const ROUTE = [
     '/' => 'page/index',
     '/login' => 'page/login',
     '/register' => 'page/register',
+    '/deregister' => 'page/deregister',
     '/user/{user}' => ['page/user', [
         'user' => REGEX_USER
     ]],
     '/logout' => 'action/logout',
+    '/logout/{user}' => ['action/logout', [
+        'user' => REGEX_USER
+    ]],
     '/login/{user}' => ['action/login', [
         'user' => REGEX_USER
     ]],
-    '/register/{user}' => ['action/register', [
+    '/register/{user}' => ['action/create/user', [
+        'user' => REGEX_USER
+    ]],
+    '/deregister/{user}' => ['action/delete/user', [
         'user' => REGEX_USER
     ]]
 ];

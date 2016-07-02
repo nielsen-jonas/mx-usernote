@@ -1,29 +1,28 @@
 <?php
 
-$nav = [
-	[
-		'page' => 'Home',
-		'href' => scr_url('page/index')
-	],
-	[
-		'page' => 'Login',
-		'href' => scr_url('page/login')
-	],
-	[
-		'page' => 'Register',
-		'href' => scr_url('page/register')
-	]
-];
-
-if (session_status() == PHP_SESSION_NONE){
-	session_start();
-}
-
-if (isset($_SESSION['logged-in'])){
-	$nav[] = [
-		'page' => 'Log out',
-		'href' => scr_url('action/logout')
+return function () {
+	$nav = [
+		[
+			'page' => 'Home',
+			'href' => scr_url('page/index'),
+			'icon' => 'fa fa-home fa-1x'
+		],
+		[
+			'page' => 'Sign in',
+			'href' => scr_url('page/login'),
+			'icon' => 'fa fa-sign-in fa-1x'
+		],
+		[
+			'page' => 'Sign up',
+			'href' => scr_url('page/register'),
+			'icon' => 'fa fa-user-plus fa-1x'
+		],
+		[
+			'page' => 'Delete account',
+			'href' => scr_url('page/deregister'),
+			'icon' => 'fa fa-user-times fa-1x'
+		]
 	];
-}
 
-return $nav;
+	return $nav;
+};

@@ -8,9 +8,9 @@ $nav = $nav();
 $users = require USR_FRAGMENT . 'users.php';
 $users = $users();
 
-echo $twig->render('login.html', [
-	'title' => 'Sign in | ' . SITE_TITLE,
+echo $twig->render('deregister.html', [
+	'title' => 'Delete account | ' . SITE_TITLE,
 	'header_navigation' => $nav,
 	'users' => $users,
-	'form_action' => WEBSITE_URL . '/login/'
+	'form_action' => WEBSITE_URL . '/deregister/'
 ]);

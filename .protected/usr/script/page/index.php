@@ -37,8 +37,13 @@ echo "User deleted!\n";
 */
 
 $nav = require USR_FRAGMENT . 'header_navigation.php';
+$nav = $nav();
+
+$users = require USR_FRAGMENT . 'users.php';
+$users = $users();
 
 echo $twig->render('index.html', [
     'title' => SITE_TITLE,
-    'header_navigation' => $nav
+    'header_navigation' => $nav,
+    'users' => $users
 ]);

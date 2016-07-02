@@ -1,6 +1,6 @@
 <?php
 
-if (!isset($_REQUEST['user'])){
+if (!isset($_REQUEST['user'])) {
 	exit('Failed to register user: Username not provided!');
 }
 if (!isset($_POST['password'])) {
@@ -11,7 +11,7 @@ require_once USR_VENDOR . 'doctrine/bootstrap.php';
 
 // Check if user exists
 $users = $entityManager->getRepository('User');
-$user = $users->findOneBy(['name'  => $_REQUEST['user']]);
+$user = $users->findOneBy(['name' => $_REQUEST['user']]);
 if (isset($user)) {
 	exit('Failed to register user: Username already taken!');
 }

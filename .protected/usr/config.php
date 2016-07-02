@@ -1,6 +1,6 @@
 <?php
 
-const SITE_TITLE = 'MX-UserNote';
+const SITE_TITLE = 'UserNote';
 
 // MySQL database connection credentials
 const DB_HOST = 'localhost';

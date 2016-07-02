@@ -10,7 +10,8 @@
 {% endblock %}
 
 {% block content %}
-	<h1>User: <em>{{ user }}</em></h1>
+	<h1><span class="fa fa-user fa-1x"></span> <em>{{ user }}</em></h1>
+	<a href="{{ logout.href }}"><span class="fa fa-sign-out fa-1x"></span> Sign out</a>
 {% endblock %}
 
 {% block footer %}
