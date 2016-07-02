@@ -22,6 +22,14 @@ if (!password_verify($_POST['password'], $user->getPass())) {
 	exit('Failed to deregister user: ' . $err);
 }
 
+// Remove notes
+$all_notes = $entityManager->getRepository('Note');
+$usernotes = $all_notes->findByUser($user);
+foreach($usernotes as $usernote) {
+	$entityManager->remove($usernote);
+}
+$entityManager->flush();
+
 // Logout if logged in
 session_start();
 unset($_SESSION['logged-in'][$user->getName()]);

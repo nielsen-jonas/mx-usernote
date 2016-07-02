@@ -13,6 +13,19 @@
 	<h1></span> <em>{{ user.name }}</em></h1>
 	<a href="{{ logout.href }}"><span class="fa fa-sign-out fa-1x"></span> Sign out</a>
 	<a href="{{ note.href }}"><span class="fa fa-edit fa-1x"></span> Write note</a>
+	<ul>
+		{%  for note in notes %}
+		<li>
+			<div>
+				<em>{{ note.date }}</em>
+				<div>
+					{{ note.note|raw }}
+				</div>
+				<a href="{{ note.delete.href }}"><span class="fa fa-trash fa-1x"></span> Delete note</a>
+			</div>
+		</li>
+		{% endfor %}
+	</ul>
 {% endblock %}
 
 {% block footer %}
