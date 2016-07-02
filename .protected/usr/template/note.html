@@ -10,9 +10,12 @@
 {% endblock %}
 
 {% block content %}
-	<h1></span> <em>{{ user.name }}</em></h1>
+	<h1><em>{{ user.name }}</em></h1>
 	<a href="{{ logout.href }}"><span class="fa fa-sign-out fa-1x"></span> Sign out</a>
-	<a href="{{ note.href }}"><span class="fa fa-edit fa-1x"></span> Write note</a>
+	<a href="{{ user.href }}"><span class="fa fa-trash fa-1x"></span> Scrap note</a>
+	<form>
+		
+	</form>
 {% endblock %}
 
 {% block footer %}

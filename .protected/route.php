@@ -11,6 +11,12 @@ const ROUTE = [
     '/user/{user}' => ['page/user', [
         'user' => REGEX_USER
     ]],
+    '/user/{user}/note' => ['page/note', [
+        'user' => REGEX_USER
+    ]],
+    '/user/{user}/note/save' => ['action/create/note', [
+        'user' => REGEX_USER
+    ]],
     '/logout' => 'action/logout',
     '/logout/{user}' => ['action/logout', [
         'user' => REGEX_USER

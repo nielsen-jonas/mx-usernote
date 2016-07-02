@@ -14,13 +14,14 @@ $users = $entityManager->getRepository('User');
 $user = $users->findOneBy(['name' => $_REQUEST['user']]);
 
 // Check if user exist
+$err = 'Invalid username or password';
 if (!isset($user)) {
-	exit('Failed to login: User doesn\'t exist');
+	exit('Failed to login: ' . $err);
 }
 
 // Verify password
 if (!password_verify($_POST['password'], $user->GetPass())){
-	exit('Failed to login: Invalid password');
+	exit('Failed to login: ' . $err);
 }
 
 // Login

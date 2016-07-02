@@ -15,11 +15,13 @@ $users = $users();
 
 require_once USR_VENDOR . 'twig/bootstrap.php';
 
-echo $twig->render('user.html', [
+echo $twig->render('note.html', [
 	'title' => $user . ' @ ' . SITE_TITLE,
 	'header_navigation' => $nav,
 	'users' => $users,
-	'user' => ['name' => $user],
-	'note' => ['href' => WEBSITE_URL . '/user/' . $user . '/note'],
+	'user' => [
+		'name' => $user,
+		'href' => WEBSITE_URL . '/user/' . $user
+	],
 	'logout' => ['href' => WEBSITE_URL . '/logout/' . $user] 
 ]);

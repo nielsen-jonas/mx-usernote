@@ -12,13 +12,14 @@ require_once USR_VENDOR . 'doctrine/bootstrap.php';
 // Check if user exists
 $users = $entityManager->getRepository('User');
 $user = $users->findOneBy(['name' => $_REQUEST['user']]);
+$err = 'Invalid username or password';
 if (!isset($user)) {
-	exit('Failed to deregister user: Username doesn\'t exist!');
+	exit('Failed to deregister user: ' . $err);
 }
 
 // Verify password
 if (!password_verify($_POST['password'], $user->getPass())) {
-	exit('Failed to deregister user: Invalid password');
+	exit('Failed to deregister user: ' . $err);
 }
 
 // Logout if logged in
