@@ -23,5 +23,11 @@ echo $twig->render('note.html', [
 		'name' => $user,
 		'href' => WEBSITE_URL . '/user/' . $user
 	],
-	'logout' => ['href' => WEBSITE_URL . '/logout/' . $user] 
+	'logout' => ['href' => WEBSITE_URL . '/logout/' . $user],
+	'form' => ['action' => WEBSITE_URL . '/user/' . $user . '/note/save'],
+	'trumbowyg' => [
+		'css' => SRC_CSS . 'trumbowyg.min.css',
+		'js' => SRC_JS . 'trumbowyg.min.js',
+		'svg' => SRC . 'svg/icons.svg'
+	]
 ]);

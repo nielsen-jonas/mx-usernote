@@ -3,6 +3,7 @@
 {% block title %}{{ title }}{% endblock %}
 {% block head %}
 	{{ parent() }}
+	<link rel="stylesheet" type="text/css" href="{{ trumbowyg.css }}">
 {% endblock %}
 
 {% block header %}
@@ -13,11 +14,27 @@
 	<h1><em>{{ user.name }}</em></h1>
 	<a href="{{ logout.href }}"><span class="fa fa-sign-out fa-1x"></span> Sign out</a>
 	<a href="{{ user.href }}"><span class="fa fa-trash fa-1x"></span> Scrap note</a>
-	<form>
-		
+	<form action="{{ form.action }}" method="post">
+		<textarea id="trumbowyg" name="note"></textarea>
+		<input type="submit" value="Save note">
 	</form>
 {% endblock %}
 
 {% block footer %}
 	{{ parent() }}
+	<script
+		src="https://code.jquery.com/jquery-3.0.0.min.js"
+		integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="
+		crossorigin="anonymous"
+	></script>
+	<script src="{{ trumbowyg.js }}"></script>
+	<script>
+		$.trumbowyg.svgPath = '{{ trumbowyg.svg }}';
+		$('#trumbowyg').trumbowyg({
+			resetCss: true,
+			semantic: true,
+			autogrow: true
+		});
+	</script>
+
 {% endblock %}
