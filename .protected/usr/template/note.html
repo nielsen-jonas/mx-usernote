@@ -13,10 +13,10 @@
 {% block content %}
 	<h1><em>{{ user.name }}</em></h1>
 	<a href="{{ logout.href }}"><span class="fa fa-sign-out fa-1x"></span> Sign out</a>
-	<a href="{{ user.href }}"><span class="fa fa-trash fa-1x"></span> Scrap note</a>
 	<form action="{{ form.action }}" method="post">
 		<textarea id="trumbowyg" name="note"></textarea>
-		<input type="submit" value="Save note">
+		<input class="btn btn-success" type="submit" value="Save note">
+		<a class="btn btn-secondary" href="{{ user.href }}"><span class="fa fa-trash fa-1x"></span> Scrap note</a>
 	</form>
 {% endblock %}
 
