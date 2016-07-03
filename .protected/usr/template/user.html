@@ -11,8 +11,8 @@
 
 {% block content %}
 	<h1></span> <em>{{ user.name }}</em></h1>
-	<a href="{{ logout.href }}"><span class="fa fa-sign-out fa-1x"></span> Sign out</a>
-	<a class="btn btn-success" href="{{ note.href }}"><span class="fa fa-edit fa-1x"></span> Write note</a>
+	<a href="{{ user.route.logout }}"><span class="fa fa-sign-out fa-1x"></span> Sign out</a>
+	<a class="btn btn-success" href="{{ user.route.note }}"><span class="fa fa-edit fa-1x"></span> Write note</a>
 
 		{%  for note in notes %}
 		<section class="card">
@@ -21,7 +21,7 @@
 			</div>
 			<div class="card-block text-xs-right">
 				<span class="card-title"><em>{{ note.date }}</em></span>
-				<a class="btn btn-secondary btn-sm" href="{{ note.delete.href }}"><span class="fa fa-trash fa-1x"></span> Delete note</a>
+				<a class="btn btn-secondary btn-sm" href="{{ note.href.delete }}"><span class="fa fa-trash fa-1x"></span> Delete note</a>
 			</div>
 		</section>
 		{% endfor %}

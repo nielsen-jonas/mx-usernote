@@ -1,7 +1,7 @@
 <?php
 
 return function () {
-	$nav = [
+	return [
 		[
 			'page' => 'Home',
 			'href' => scr_url('page/index'),
@@ -23,6 +23,4 @@ return function () {
 			'icon' => 'fa fa-user-times fa-1x'
 		]
 	];
-
-	return $nav;
 };

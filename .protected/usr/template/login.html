@@ -12,13 +12,17 @@
 {% block content %}
 	<h1>Sign in</h1>
 	<form id="form-login" method="POST">
-		<div>
-			<label for="username">Username</label>
-			<input id="username" type="text" value="{{ username }}">
+		<div class="form-group row">
+			<label for="username" class="col-sm-1 form-control-label">Username</label>
+			<div class="col-sm-3">
+				<input id="username" class="form-control" type="text" value="{{ username }}">
+			</div>
 		</div>
-		<div>
-			<label>Password</label>
-			<input type="password" name="password">
+		<div class="form-group row">
+			<label for="password" class="col-sm-1 form-control-label">Password</label>
+			<div class="col-sm-3">
+				<input id="password" class="form-control" type="password" name="password">
+			</div>
 		</div>
 		<input class="btn btn-secondary" type="submit" value="Sign in">
 	</form>
@@ -35,7 +39,7 @@
 		$(function(){
 			$('#form-login').submit(function(){
 				var username = $('#username').val();
-				$(this).attr('action', '{{ form_action }}' + username);
+				$(this).attr('action', '{{ route_pre.login }}' + username);
 			});
 		});
 	</script>

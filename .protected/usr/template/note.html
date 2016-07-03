@@ -12,11 +12,11 @@
 
 {% block content %}
 	<h1><em>{{ user.name }}</em></h1>
-	<a href="{{ logout.href }}"><span class="fa fa-sign-out fa-1x"></span> Sign out</a>
-	<form action="{{ form.action }}" method="post">
+	<a href="{{ user.route.logout }}"><span class="fa fa-sign-out fa-1x"></span> Sign out</a>
+	<form action="{{ user.route.note_save }}" method="post">
 		<textarea id="trumbowyg" name="note"></textarea>
 		<input class="btn btn-success" type="submit" value="Save note">
-		<a class="btn btn-secondary" href="{{ user.href }}"><span class="fa fa-trash fa-1x"></span> Scrap note</a>
+		<a class="btn btn-secondary" href="{{ user.route.home }}"><span class="fa fa-trash fa-1x"></span> Scrap note</a>
 	</form>
 {% endblock %}
 

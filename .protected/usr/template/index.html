@@ -10,16 +10,14 @@
 {% endblock %}
 
 {% block content %}
-	<div class="jubotron">
-		<h1 class="display-3">Welcome!</h1>
-		<p class="lead">Simple note taking application.</p>
-		<p class="lead">
-			<a class="btn btn-success btn-lg" href="{{ anchor.register.href }}" role="button">Sign up</a>
-			<a class="btn btn-secondary btn-lg" href="{{ anchor.login.href }}" role="button">Sign in</a>
-		</p>
-
-	</div>
-
+<div class="jumbotron">
+	<h1 class="display-3">Welcome!</h1>
+	<p class="lead">Simple note taking application.</p>
+	<p class="lead">
+		<a class="btn btn-success btn-lg" href="{{ route.register }}" role="button">Sign up</a>
+		<a class="btn btn-secondary btn-lg" href="{{ route.login }}" role="button">Sign in</a>
+	</p>
+</div>
 {% endblock %}
 
 {% block footer %}

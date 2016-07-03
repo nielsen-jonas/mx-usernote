@@ -2,16 +2,19 @@
 
 require_once USR_VENDOR . 'twig/bootstrap.php';
 
-$nav = require USR_FRAGMENT . 'header_navigation.php';
+$nav = require USR_FRAGMENT . 'template/navigation.php';
 $nav = $nav();
 
-$users = require USR_FRAGMENT . 'users.php';
+$users = require USR_FRAGMENT . 'template/users.php';
 $users = $users();
 
+$resources = require USR_FRAGMENT . 'template/resources.php';
+$resources = $resources();
+
 echo $twig->render('default.html', [
+	'resources' => $resources,
 	'title' => 'Not Found | ' . SITE_TITLE,
-	'header_navigation' => $nav,
+	'navigation' => $nav,
 	'users' => $users,
 	'request' => WEBSITE_REQUEST,
-	'home' => ['href' => WEBSITE_URL]
 ]);

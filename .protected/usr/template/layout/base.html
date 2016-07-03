@@ -15,10 +15,12 @@
 				rel="stylesheet"
 				type="text/css"
           		href="https://fonts.googleapis.com/css?family=Permanent+Marker">
+          	<link rel="stylesheet" type="text/css" href="{{ resources.css.style }}">
 			<script src="https://use.fontawesome.com/ca8c9f0754.js"></script>
 		{% endblock %}
 	</head>
-	<body class="container">
+	<body>
+		<div class="container">
 		{% block body %}
 			<header>
 				{% block header %}
@@ -26,7 +28,7 @@
 					<nav class="navbar navbar-light bg-faded">
 						<h2 class="navbar-brand" hidden>Navigation</h2>
 						<ul class="nav navbar-nav">
-							{% for element in header_navigation %}
+							{% for element in navigation %}
 								<li class="nav-item"><a class="nav-link" href="{{ element.href }}"><span class="{{ element.icon }}"></span> {{ element.page }}</a></li>
 							{% endfor %}
 						</ul>
@@ -49,5 +51,6 @@
 				integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" 
 				crossorigin="anonymous"></script>
 		{% endblock %}
+		</div>
 	</body>
 </html>
