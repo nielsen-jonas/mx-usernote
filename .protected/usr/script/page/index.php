@@ -45,5 +45,9 @@ $users = $users();
 echo $twig->render('index.html', [
     'title' => SITE_TITLE,
     'header_navigation' => $nav,
-    'users' => $users
+    'users' => $users,
+    'anchor' => [
+    	'login' => ['href' => scr_url('page/login')],
+    	'register' => ['href' => scr_url('page/register')]
+    ]
 ]);
