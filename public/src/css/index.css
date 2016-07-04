@@ -1,0 +1,46 @@
+.index-content {
+	color: #FFF;
+	text-shadow: 0 0 6rem #000;
+}
+
+#index-heading {
+	font-size: 6rem;
+}
+
+#index-subheading {
+	font-size: 1.5rem;
+}
+
+#index-banner-button > a {
+	margin-right: 1rem;
+}
+
+@media (min-width: 0px) {
+	#index-banner {
+		background-image: url('https://unsplash.it/554/350/?random');
+	}
+}
+
+@media (min-width: 544px) {
+	#index-banner {
+		background-image: url('https://unsplash.it/768/350/?random');
+	}
+}
+
+@media (min-width: 768px) {
+	#index-banner {
+		background-image: url('https://unsplash.it/992/350/?random');
+	}
+}
+
+@media (min-width: 992px) {
+	#index-banner {
+		background-image: url('https://unsplash.it/1200/350/?random');
+	}
+}
+
+@media (min-width: 1200px) {
+	#index-banner {
+		background-image: url('https://unsplash.it/2000/350/?random');
+	}
+}

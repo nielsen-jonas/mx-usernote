@@ -1,0 +1,18 @@
+<header id="header" class="row">
+	<nav>
+		<h1>UserNote</h1>
+		<button style="float: right" class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#CollapsingNavbar">&#9776;</button>
+		<div style="float: right" class="collapse navbar-toggleable-xs" id="CollapsingNavbar">
+		<ul>
+			{% for element in navigation %}
+				<li ><a class="nav-link" href="{{ element.href }}"><span class="{{ element.icon }}"></span> {{ element.page }}</a></li>
+			{% endfor %}
+		</ul>
+		</div>
+	</nav>
+	<div class="btn-group">
+		{% for user in users %}
+			<a class="btn btn-secondary btn-sm" href="{{ user.href }}"><span class="fa fa-user fa-1x"></span> {{ user.name }}</a>
+		{% endfor %}
+	</div>
+</header>

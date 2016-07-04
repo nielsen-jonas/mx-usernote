@@ -6,11 +6,7 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     		<meta http-equiv="x-ua-compatible" content="ie=edge">
 			<title>{% block title %}{% endblock %}</title>
-			<link
-				rel="stylesheet"
-				href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
-				integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd"
-				crossorigin="anonymous">
+			<link rel="stylesheet" type="text/css" href="{{ resources.css.bootstrap }}">
 			<link
 				rel="stylesheet"
 				type="text/css"
@@ -20,37 +16,22 @@
 		{% endblock %}
 	</head>
 	<body>
-		<div class="container">
+		<div class="container-fluid">
 		{% block body %}
-			<header>
+			<div class="container">
 				{% block header %}
-					<h1 style="font-family: 'Permanent Marker', 'sans-serif'">UserNote</h1>
-					<nav class="navbar navbar-light bg-faded">
-						<h2 class="navbar-brand" hidden>Navigation</h2>
-						<ul class="nav navbar-nav">
-							{% for element in navigation %}
-								<li class="nav-item"><a class="nav-link" href="{{ element.href }}"><span class="{{ element.icon }}"></span> {{ element.page }}</a></li>
-							{% endfor %}
-						</ul>
-					</nav>
-					<ul>
-						{% for user in users %}
-							<li><a href="{{ user.href }}"><span class="fa fa-user fa-1x"></span> {{ user.name }}</a></li>
-						{% endfor %}
-					</ul>
+					{% include "layout/header.html" %}
 				{% endblock %}
-			</header>
-			<section><main>{% block content %}{% endblock %}</main></section>
-			<footer>
+			</div>
+			<section class="row"><main>{% block content %}{% endblock %}</main></section>
+			<footer id="footer" class="container">
 				{% block footer %}
 					&copy; 2016 by Jonas Nielsen
 				{% endblock %}
 			</footer>
-			<script
-				src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"
-				integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" 
-				crossorigin="anonymous"></script>
 		{% endblock %}
 		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="{{ resources.js.bootstrap }}" ></script>
 	</body>
 </html>

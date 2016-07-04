@@ -3,6 +3,7 @@
 {% block title %}{{ title }}{% endblock %}
 {% block head %}
 	{{ parent() }}
+	<link rel="stylesheet" type="text/css" href="{{ resources.css.user }}">
 {% endblock %}
 
 {% block header %}
@@ -10,21 +11,27 @@
 {% endblock %}
 
 {% block content %}
-	<h1></span> <em>{{ user.name }}</em></h1>
-	<a href="{{ user.route.logout }}"><span class="fa fa-sign-out fa-1x"></span> Sign out</a>
-	<a class="btn btn-success" href="{{ user.route.note }}"><span class="fa fa-edit fa-1x"></span> Write note</a>
+	{% embed "layout/main.html" %}
+		{% block main %}
+			{% include "layout/user/header.html" %}
+			<div id="user-write-note">
+				<a class="btn btn-success btn-block" href="{{ user.route.note }}"><span class="fa fa-edit fa-1x"></span> Write note</a>
+			</div>
 
-		{%  for note in notes %}
-		<section class="card">
-			<div class="card-block">
-				{{ note.note|raw }}
-			</div>
-			<div class="card-block text-xs-right">
-				<span class="card-title"><em>{{ note.date }}</em></span>
-				<a class="btn btn-secondary btn-sm" href="{{ note.href.delete }}"><span class="fa fa-trash fa-1x"></span> Delete note</a>
-			</div>
-		</section>
-		{% endfor %}
+				{%  for note in notes %}
+				<div class="user-note card">
+					<div class="user-note-note">
+						{{ note.note|raw }}
+					</div>
+					<hr>
+					<div class="user-note-footer">
+						<em>{{ note.date }}</em>
+						<a class="btn btn-secondary btn-sm" href="{{ note.href.delete }}"><span class="fa fa-trash fa-1x"></span> Delete note</a>
+					</div>
+				</div>
+				{% endfor %}
+		{% endblock %}
+	{% endembed %}
 
 {% endblock %}
 

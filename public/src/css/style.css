@@ -1,4 +1,39 @@
-.vertical-center {
-  display: flex;
-  align-items: center;
+#main-wrapper {
+	background-image: url("../img/seamless_paper_texture.png");
 }
+
+#heading {
+	display: inline;
+}
+
+#header-nav {
+	float:right;
+}
+#header-nav > li {
+	display: inline-block;
+}
+
+#heading, #user-heading {
+	font-family: 'Permanent Marker', 'sans-serif';
+}
+
+.trumbowyg, .user-note {
+	background-color: rgb(255,255,255);
+}
+
+#index-banner, #header, #footer, #main-wrapper {
+		padding: 2rem 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+#user-header > h1 {
+	display: inline;
+}
+
+#user-header > a {
+	float: right;
+}
+
