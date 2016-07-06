@@ -26,3 +26,12 @@
 #form-button-section > input {
 	margin-right: 1rem;
 }
+
+@media (min-width: 768px) {
+	.column-left {
+		padding-right: .4rem;
+	}
+	.column-right {
+		padding-left: .4rem;
+	}
+}

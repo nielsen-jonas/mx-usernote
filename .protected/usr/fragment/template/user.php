@@ -8,7 +8,8 @@ return function ($user) {
 			'note' => WEBSITE_URL . '/user/' . $user . '/note',
 			'note_save' => WEBSITE_URL . '/user/' . $user . '/note/save',
 			'note_delete' => WEBSITE_URL . '/user/' . $user . '/note/delete',
-			'logout' => WEBSITE_URL . '/logout/' . $user
+			'logout' => WEBSITE_URL . '/logout/' . $user,
+			'note' => WEBSITE_URL . '/user/' . $user . '/note/get'
 		]
 	];
 };

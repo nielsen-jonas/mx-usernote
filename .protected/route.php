@@ -33,6 +33,9 @@ const ROUTE = [
     ]],
     '/deregister/{user}' => ['action/delete/user', [
         'user' => REGEX_USER
+    ]],
+    '/user/{user}/note/get' => ['action/read/note', [
+        'user' => REGEX_USER
     ]]
 ];
 

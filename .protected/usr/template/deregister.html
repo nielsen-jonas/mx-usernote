@@ -6,17 +6,13 @@
 		{% block content %}
 			<h1><span class='fa fa-warning fa-1x'></span> Delete account</h1>
 			<form id="form-deregister" method="POST">
-				<div class="form-group row">
-					<label for="username" class="col-sm-1 form-control-label">Username</label>
-					<div class="col-sm-3">
-						<input id="username" class="form-control" type="text" value="{{ username }}">
-					</div>
+				<div class="form-group">
+					<label for="username" class="form-control-label">Username</label>
+					<input id="username" class="form-control" type="text" value="{{ username }}">
 				</div>
-				<div class="form-group row">
-					<label for="password" class="col-sm-1 form-control-label">Password</label>
-					<div class="col-sm-3">
-						<input id="password" class="form-control" type="password" name="password">
-					</div>
+				<div class="form-group">
+					<label for="password" class="form-control-label">Password</label>
+					<input id="password" class="form-control" type="password" name="password">
 				</div>
 				<input class="btn btn-secondary" type="submit" value="Delete">
 			</form>

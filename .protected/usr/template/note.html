@@ -8,7 +8,7 @@
 
 {% block content %}
 	{% embed "layout/user.html" %}
-		{% block main %}
+		{% block content %}
 			<form action="{{ user.route.note_save }}" method="post">
 				<textarea id="trumbowyg" name="note"></textarea>
 				<div id="form-button-section">

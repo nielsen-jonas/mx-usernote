@@ -19,7 +19,7 @@
 		<div class="container-fluid">
 		{% block body %}
 			<div class="container">
-				<header id="header">
+				<header id="header" class="row">
 					{% block header %}
 						{% include "layout/header.html" %}
 					{% endblock %}
@@ -28,7 +28,7 @@
 			{% block content %}
 			{% endblock %}
 			<div class="container">
-				<footer id="footer">
+				<footer id="footer" class="row">
 					{% block footer %}
 						<p>&copy; 2016 by Jonas Nielsen</p>
 					{% endblock %}
@@ -36,7 +36,9 @@
 			</div>
 		{% endblock %}
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script src="{{ resources.js.bootstrap }}" ></script>
+		{% block scripts %}
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+			<script src="{{ resources.js.bootstrap }}" ></script>
+		{% endblock %}
 	</body>
 </html>

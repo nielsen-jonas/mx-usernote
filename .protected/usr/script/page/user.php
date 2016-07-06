@@ -50,5 +50,5 @@ echo $twig->render('user.html', [
 	'navigation' => $nav,
 	'users' => $users,
 	'user' => $user,
-	'notes' => $notes
+	'notes' => $notes,
 ]);
