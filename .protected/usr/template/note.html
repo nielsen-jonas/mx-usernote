@@ -1,29 +1,26 @@
 {% extends "layout/base.html" %}
 
-{% block title %}{{ title }}{% endblock %}
 {% block head %}
 	{{ parent() }}
+	<link rel="stylesheet" type="text/css" href="{{ resources.css.user }}">
 	<link rel="stylesheet" type="text/css" href="{{ trumbowyg.css }}">
 {% endblock %}
 
-{% block header %}
-	{{ parent() }}
-{% endblock %}
-
 {% block content %}
-	{% embed "layout/main.html" %}
+	{% embed "layout/user.html" %}
 		{% block main %}
-			{% include "layout/user/header.html" %}
 			<form action="{{ user.route.note_save }}" method="post">
 				<textarea id="trumbowyg" name="note"></textarea>
-				<input class="btn btn-success" type="submit" value="Save note">
-				<a class="btn btn-secondary" href="{{ user.route.home }}"><span class="fa fa-trash fa-1x"></span> Scrap note</a>
+				<div id="form-button-section">
+					<input class="btn btn-success" type="submit" value="Save note">
+					<a class="btn btn-secondary" href="{{ user.route.home }}"><span class="fa fa-trash fa-1x"></span> Scrap note</a>
+				</div>
 			</form>
 		{% endblock %}
 	{% endembed %}
 {% endblock %}
 
-{% block footer %}
+{% block body %}
 	{{ parent() }}
 	<script
 		src="https://code.jquery.com/jquery-3.0.0.min.js"
@@ -39,5 +36,4 @@
 			autogrow: true
 		});
 	</script>
-
 {% endblock %}

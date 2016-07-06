@@ -5,7 +5,7 @@
 			<meta charset="UTF-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     		<meta http-equiv="x-ua-compatible" content="ie=edge">
-			<title>{% block title %}{% endblock %}</title>
+			<title>{% block title %}{{ title }}{% endblock %}</title>
 			<link rel="stylesheet" type="text/css" href="{{ resources.css.bootstrap }}">
 			<link
 				rel="stylesheet"
@@ -19,16 +19,21 @@
 		<div class="container-fluid">
 		{% block body %}
 			<div class="container">
-				{% block header %}
-					{% include "layout/header.html" %}
-				{% endblock %}
+				<header id="header">
+					{% block header %}
+						{% include "layout/header.html" %}
+					{% endblock %}
+				</header>
 			</div>
-			<section class="row"><main>{% block content %}{% endblock %}</main></section>
-			<footer id="footer" class="container">
-				{% block footer %}
-					&copy; 2016 by Jonas Nielsen
-				{% endblock %}
-			</footer>
+			{% block content %}
+			{% endblock %}
+			<div class="container">
+				<footer id="footer">
+					{% block footer %}
+						<p>&copy; 2016 by Jonas Nielsen</p>
+					{% endblock %}
+				</footer>
+			</div>
 		{% endblock %}
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

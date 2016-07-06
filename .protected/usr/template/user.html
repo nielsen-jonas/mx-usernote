@@ -1,19 +1,13 @@
 {% extends "layout/base.html" %}
 
-{% block title %}{{ title }}{% endblock %}
 {% block head %}
 	{{ parent() }}
 	<link rel="stylesheet" type="text/css" href="{{ resources.css.user }}">
 {% endblock %}
 
-{% block header %}
-	{{ parent() }}
-{% endblock %}
-
 {% block content %}
-	{% embed "layout/main.html" %}
-		{% block main %}
-			{% include "layout/user/header.html" %}
+	{% embed "layout/user.html" %}
+		{% block content %}
 			<div id="user-write-note">
 				<a class="btn btn-success btn-block" href="{{ user.route.note }}"><span class="fa fa-edit fa-1x"></span> Write note</a>
 			</div>
@@ -24,17 +18,13 @@
 						{{ note.note|raw }}
 					</div>
 					<hr>
-					<div class="user-note-footer">
+					<div class="user-note-footer container">
 						<em>{{ note.date }}</em>
-						<a class="btn btn-secondary btn-sm" href="{{ note.href.delete }}"><span class="fa fa-trash fa-1x"></span> Delete note</a>
+						<a class="btn btn-secondary btn-sm" href="{{ note.href.delete }}"><span 
+						class="fa fa-trash fa-1x"></span> Delete note</a>
 					</div>
 				</div>
 				{% endfor %}
 		{% endblock %}
 	{% endembed %}
-
-{% endblock %}
-
-{% block footer %}
-	{{ parent() }}
 {% endblock %}

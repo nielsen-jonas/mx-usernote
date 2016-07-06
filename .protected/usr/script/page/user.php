@@ -46,7 +46,7 @@ require_once USR_VENDOR . 'twig/bootstrap.php';
 
 echo $twig->render('user.html', [
 	'resources' => $resources,
-	'title' => $user_name . ' @ ' . SITE_TITLE,
+	'title' => $user_name . ' | ' . SITE_TITLE,
 	'navigation' => $nav,
 	'users' => $users,
 	'user' => $user,

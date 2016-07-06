@@ -1,17 +1,9 @@
 {% extends "layout/base.html" %}
 
-{% block title %}{{ title }}{% endblock %}
-{% block head %}
-	{{ parent() }}
-{% endblock %}
-
-{% block header %}
-	{{ parent() }}
-{% endblock %}
-
 {% block content %}
-	{% embed "layout/main.html" %}
-		{% block main %}
+	{% embed "layout/banner.html" %}
+		{% block id %}generic-banner{% endblock %}
+		{% block content %}
 			<h1>Sign in</h1>
 			<form id="form-login" method="POST">
 				<div class="form-group row">

@@ -1,23 +1,11 @@
 {% extends "layout/base.html" %}
 
-{% block title %}{{ title }}{% endblock %}
-{% block head %}
-	{{ parent() }}
-{% endblock %}
-
-{% block header %}
-	{{ parent() }}
-{% endblock %}
-
 {% block content %}
-	{% embed "layout/main.html" %}
-		{% block main %}
+	{% embed "layout/banner.html" %}
+		{% block id %}generic-banner{% endblock %}
+		{% block content %}
 			<h1>Page Not Found: <samp>{{ request }}</samp></h1>
 			<img src="https://source.unsplash.com/random" alt="unsplash.com">
 		{% endblock %}
 	{% endembed %}
-{% endblock %}
-
-{% block footer %}
-	{{ parent() }}
 {% endblock %}
