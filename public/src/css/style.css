@@ -7,9 +7,9 @@
 	display: inline;
 }
 
-#heading > a {
+.link-unstyle:link, .link-unstyle:visited, .link-unstyle:hover, .link-unstyle:active {
 	text-decoration: none;
-	color: rgb(25,25,25);
+	color: rgb(55,58,60);
 }
 
 #header > nav {

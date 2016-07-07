@@ -1,5 +1,7 @@
 <?php
 
+header('Content-Type: application/json');
+
 $user_name = $_REQUEST['user'];
 
 // Check if logged in
@@ -24,11 +26,11 @@ $usernotes = $all_notes->findByUser($user);
 
 $response = [];
 foreach($usernotes as $usernote) {
-	$response[] = [
-	'date' => $usernote->getDate(),
+	array_unshift( $response, [
+	'date' => $usernote->getDate()->format('Y-m-d H:i'),
 	'note' => $usernote->getNote(),
 	'delete' => WEBSITE_URL . '/user/' . $user_name . '/note/delete/' . $usernote->getId()
-	];
+	]);
 }
 
 print_r(json_encode($response));

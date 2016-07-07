@@ -12,13 +12,9 @@ $users = $users();
 $resources = require USR_FRAGMENT . 'template/resources.php';
 $resources = $resources();
 
-$route = require USR_FRAGMENT . 'template/route.php';
-$route = $route();
-
 echo $twig->render('index.html', [
 	'resources' => $resources,
     'title' => SITE_TITLE,
     'navigation' => $nav,
     'users' => $users,
-    'route' => $route
 ]);

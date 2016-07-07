@@ -21,8 +21,34 @@ $( document ).ready( function() {
 		mq = 'md';
 	}
 });
-$response = $.ajax({
-	url: '{{ user.route.note_get }}'
+$(function (){
+	var $container = $('#note-section');
+	$response = $.ajax({
+		url: '{{ user.route.note_get }}',
+		success: function(notes) {
+			$.each(notes, function(i, notes) {
+				$container.append('<div id="note-' + i + '" class="user-note card"></div>');
+				var $note = $('#note-' + i);
+				$note.append('<div id="note-' + i + '-note" class="user-note-note container"></div>');
+				$note.append('<hr>');
+				$note.append('<div id="note-' + i + '-footer" class="user-note-footer container"></div>');
+				$notenote = $('#note-' + i + '-note');
+				$notefooter = $('#note-' + i + '-footer');
+				$notenote.append(notes.note);
+				$notefooter.append('<em>' + notes.date + '</em>');
+				$notefooter.append('<button class="btn btn-secondary btn-sm" onclick="delete_note(\'#note-' + i + '\', \'' + notes.delete + '\')"><span class="fa fa-trash fa-1x"></span> Delete note</button>');
+
+			});
+		}
+	});
 });
+function delete_note (noteId, route) {
+	$.ajax({
+		url: route,
+		success: function () {
+			$(noteId).remove();
+		}
+	});
+}
 
 </script>

@@ -9,17 +9,17 @@ return function () {
 		],
 		'users' => [],
 		'nav' => [
-			[
+			'login' => [
 				'name' => 'Sign in',
 				'route' => scr_url('page/login'),
 				'icon' => 'fa fa-sign-in fa-1x'
 			],
-			[
+			'register' => [
 				'name' => 'Sign up',
 				'route' => scr_url('page/register'),
 				'icon' => 'fa fa-user-plus fa-1x'
 			],
-			[
+			'deregister' => [
 				'name' => 'Delete account',
 				'route' => scr_url('page/deregister'),
 				'icon' => 'fa fa-user-times fa-1x'

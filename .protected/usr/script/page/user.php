@@ -7,6 +7,7 @@ if (!isset($_SESSION['logged-in'][$user_name])) {
 	exit('User <em>' . $user_name . '</em> not logged in');
 }
 
+/*
 require_once USR_VENDOR . 'doctrine/bootstrap.php';
 
 // Get user
@@ -27,7 +28,7 @@ foreach ($dnotes as $note){
 }
 
 $notes = array_reverse($notes);
-
+*/
 // Template
 
 $nav = require USR_FRAGMENT . 'template/navigation.php';
@@ -50,5 +51,4 @@ echo $twig->render('user.html', [
 	'navigation' => $nav,
 	'users' => $users,
 	'user' => $user,
-	'notes' => $notes,
 ]);

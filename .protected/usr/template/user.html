@@ -11,40 +11,7 @@
 			<div id="user-write-note">
 				<a class="btn btn-success btn-block" href="{{ user.route.note }}"><span class="fa fa-edit fa-1x"></span> Write note</a>
 			</div>
-			<div class="col-lg-6">
-				<div class="column-left row">
-					{%  for note in notes %}
-					<div class="user-note card">
-						<div class="user-note-note container">
-							{{ note.note|raw }}
-						</div>
-						<hr>
-						<div class="user-note-footer container">
-							<em>{{ note.date }}</em>
-							<a class="btn btn-secondary btn-sm" href="{{ note.href.delete }}"><span 
-							class="fa fa-trash fa-1x"></span> Delete note</a>
-						</div>
-					</div>
-					{% endfor %}
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="column-right row">
-					{%  for note in notes %}
-					<div class="user-note card">
-						<div class="user-note-note container">
-							{{ note.note|raw }}
-						</div>
-						<hr>
-						<div class="user-note-footer container">
-							<em>{{ note.date }}</em>
-							<a class="btn btn-secondary btn-sm" href="{{ note.href.delete }}"><span 
-							class="fa fa-trash fa-1x"></span> Delete note</a>
-						</div>
-					</div>
-					{% endfor %}
-				</div>
-			</div>
+			<div id="note-section"></div>
 		{% endblock %}
 	{% endembed %}
 {% endblock %}
