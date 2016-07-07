@@ -3,13 +3,13 @@
 	<button id="header-nav-button" class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#CollapsingNavbar"><span class="fa fa-navicon fa-1x"></span></button>
 	<div class="collapse navbar-toggleable-md navbar-light" id="CollapsingNavbar">
 		<ul class="nav navbar-nav" id="header-nav">
-			<li><a class="nav-link" href="{{ navigation.home.route }}"><span class="{{ navigation.home.icon }}"></span> {{ navigation.home.name }}</a></li>
+			<li class="nav-item {% if navigation.home.current == true %}active{% endif %}"><a class="nav-link" href="{{ navigation.home.route }}"><span class="{{ navigation.home.icon }}"></span> {{ navigation.home.name }}</a></li>
 			{% if navigation.users|length != 0 %}
 				{% if navigation.users|length == 1 %}
-					<li><a class="nav-link" href="{{ navigation.users[0].route.main }}"><span class="fa fa-user fa-1x"></span> {{ navigation.users[0].name }}</a></li>
-					<li><a class="nav-link" href="{{ navigation.users[0].route.logout }}"><span class="fa fa-sign-out fa-1x"></span> Sign out</a></li>
+					<li class="nav-item {% if navigation.user.current == true %}active{% endif %}"><a class="nav-link" href="{{ navigation.users[0].route.main }}"><span class="fa fa-user fa-1x"></span> {{ navigation.users[0].name }}</a></li>
+					<li class="nav-item"><a class="nav-link" href="{{ navigation.users[0].route.logout }}"><span class="fa fa-sign-out fa-1x"></span> Sign out</a></li>
 				{% else %}
-					<li class="btn-group">
+					<li class="btn-group nav-item {% if navigation.user.current == true %}active{% endif %}">
 						<span type="button" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-users fa-1x"></span>&nbsp;User&nbsp;</span>
 						<span class="dropdown-menu">
 							{% for user in navigation.users %}
@@ -17,7 +17,7 @@
 							{% endfor %}
 						</span>
 					</li>
-					<li class="btn-group">
+					<li class="btn-group nav-item">
 						<span type="button" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-sign-out fa-1x"></span>&nbsp;Sign out&nbsp;</span>
 						<span class="dropdown-menu">
 							{% for user in navigation.users %}
@@ -28,30 +28,8 @@
 				{% endif %}
 			{% endif %}
 			{% for item in navigation.nav %}
-				<li><a class="nav-link" href="{{ item.route }}"><span class="{{ item.icon }}"></span> {{ item.name }}</a></li>
+				<li class="nav-item  {% if item.current == true %}active{% endif %}"><a class="nav-link" href="{{ item.route }}"><span class="{{ item.icon }}"></span> {{ item.name }}</a></li>
 			{% endfor %}
-			<!--
-			{% if nav.user|length > 0 %}
-				{% if nav.user|length == 1 %}
-					{% for user in users %}
-						<li><a class="nav-link" href="{{ user.href }}"><span class="fa fa-user fa-1x"></span> {{ user.name }}</a></li>
-					{% endfor %}
-					<li><a class="nav-link" href="{{ user.logout }}"><span class="fa fa-sign-out fa-1x"></span> Sign out</a></li>
-				{% else %}
-				<li class="nav-link btn-group">
-					<div type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-users fa-1x"></span> Users </div>
-					<div class="dropdown-menu">
-						{% for user in users %}
-							<a class="dropdown-item" href="{{ user.href }}"><span class="fa fa-user fa-1x"></span> {{ user.name }}</a>
-						{% endfor %}
-					</div>
-				</li>
-				{% endif %}
-			{% endif%}
-			{% for element in navigation if element.page != "Home" %}
-				<li><a class="nav-link" href="{{ element.href }}"><span class="{{ element.icon }}"></span> {{ element.page }}</a></li>
-			{% endfor %}
-			-->
 		</ul>
 	</div>
 </nav>

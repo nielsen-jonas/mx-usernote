@@ -1,0 +1,48 @@
+<script src="{{ resources.js.modernizr }}"></script>
+<script>
+$( window ).resize( function() {
+	mqpre = mq;
+	if (Modernizr.mq('(min-width: 992px)')) {
+		mq = 'lg';
+	}
+	else if (Modernizr.mq('(min-width: 768px)')) {
+		mq = 'md';
+	}
+	else {
+		mq = 'sm';
+	}
+	if (mqpre != mq) {
+		console.log(mq);
+		if (mq == 'sm') {
+			sm_nav();
+		}
+		if (mqpre == 'sm') {
+			sm_nav(false);
+		}
+	}
+});
+$( document ).ready( function() {
+	if (Modernizr.mq('(min-width: 992px)')) {
+		mq = 'lg';
+	}
+	else if (Modernizr.mq('(min-width: 768px)')) {
+		mq = 'md';
+	}
+	else {
+		mq = 'sm';
+	}
+	console.log(mq);
+	if (mq == 'sm') {
+			sm_nav();
+		}
+});
+function sm_nav(sm = true) {
+	if (sm) {
+		$('#header-nav').prepend('<span id="nav-bug-fix" class="nav-item"></span>');
+		$('.nav-item').addClass('col-xs-12');
+	} else {
+		$('#nav-bug-fix').remove();
+		$('.nav-item').removeClass('col-xs-12');
+	}
+}
+</script>

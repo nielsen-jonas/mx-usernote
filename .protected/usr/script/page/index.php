@@ -4,7 +4,7 @@ require_once USR_VENDOR . 'doctrine/bootstrap.php';
 require_once USR_VENDOR . 'twig/bootstrap.php';
 
 $nav = require USR_FRAGMENT . 'template/navigation.php';
-$nav = $nav();
+$nav = $nav('home');
 
 $users = require USR_FRAGMENT . 'template/users.php';
 $users = $users();

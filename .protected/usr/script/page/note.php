@@ -8,7 +8,7 @@ if (!isset($_SESSION['logged-in'][$user_name])) {
 }
 
 $nav = require USR_FRAGMENT . 'template/navigation.php';
-$nav = $nav();
+$nav = $nav('user');
 
 $users = require USR_FRAGMENT . 'template/users.php';
 $users = $users();

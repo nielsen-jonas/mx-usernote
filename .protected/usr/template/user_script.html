@@ -1,26 +1,4 @@
-<script src="{{ resources.js.modernizr }}"></script>
 <script>
-
-$( window ).resize( function() {
-	var mqpre = mq;
-	if (Modernizr.mq('(min-width: 992px)')) {
-		mq = 'lg';
-	}
-	else {
-		mq = 'md';
-	}
-	if (mqpre != mq) {
-		console.log(mq);
-	}
-});
-$( document ).ready( function() {
-	if (Modernizr.mq('(min-width: 992px)')) {
-		mq = 'lg';
-	}
-	else {
-		mq = 'md';
-	}
-});
 $(function (){
 	var $container = $('#note-section');
 	$response = $.ajax({
@@ -43,12 +21,9 @@ $(function (){
 	});
 });
 function delete_note (noteId, route) {
+	$(noteId).remove();
 	$.ajax({
-		url: route,
-		success: function () {
-			$(noteId).remove();
-		}
+		url: route
 	});
 }
-
 </script>

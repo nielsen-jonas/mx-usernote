@@ -3,7 +3,7 @@
 require_once USR_VENDOR . 'twig/bootstrap.php';
 
 $nav = require USR_FRAGMENT . 'template/navigation.php';
-$nav = $nav();
+$nav = $nav('register');
 
 $users = require USR_FRAGMENT . 'template/users.php';
 $users = $users();

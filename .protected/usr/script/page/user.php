@@ -7,32 +7,10 @@ if (!isset($_SESSION['logged-in'][$user_name])) {
 	exit('User <em>' . $user_name . '</em> not logged in');
 }
 
-/*
-require_once USR_VENDOR . 'doctrine/bootstrap.php';
-
-// Get user
-$users = $entityManager->getRepository('User');
-$user = $users->findOneBy(['name' => $user_name]);
-
-// Get user notes
-$notes = [];
-$dnotes = $entityManager->getRepository('Note')->findByUser($user);
-foreach ($dnotes as $note){
-	$notes[] = [
-		'href' => [
-			'delete' => WEBSITE_URL . '/user/' . $user_name . '/note/delete/' . $note->getId()
-		],
-		'date' => $note->getDate()->format('Y-m-d H:i:s'),
-		'note' => $note->getNote()
-	];
-}
-
-$notes = array_reverse($notes);
-*/
 // Template
 
 $nav = require USR_FRAGMENT . 'template/navigation.php';
-$nav = $nav();
+$nav = $nav('user');
 
 $users = require USR_FRAGMENT . 'template/users.php';
 $users = $users();
