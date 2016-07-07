@@ -1,11 +1,16 @@
 {% extends "layout/base.html" %}
 
+{% block header %}
+	{{ parent() }}
+	<link rel="stylesheet" type="text/css" href="{{ resources.css.default }}">
+{% endblock %}
+
 {% block content %}
 	{% embed "layout/banner.html" %}
 		{% block id %}generic-banner{% endblock %}
 		{% block content %}
 			<h1>Page Not Found: <samp>{{ request }}</samp></h1>
-			<img src="https://source.unsplash.com/random" alt="unsplash.com">
+			<img id="default-image" src="https://source.unsplash.com/random" alt="unsplash.com">
 		{% endblock %}
 	{% endembed %}
 {% endblock %}
