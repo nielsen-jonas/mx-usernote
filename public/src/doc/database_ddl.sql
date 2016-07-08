@@ -1,20 +1,20 @@
-CREATE DATABASE mx_usernote;
+/** CREATE DATABASE note; **/
 
-CREATE TABLE mx_usernote.users (
-	id		INT(11)			UNSIGNED NOT NULL AUTO_INCREMENT,
-	name	VARCHAR(255)	NOT NULL,
-	pass	VARCHAR(255)	NOT NULL,
+CREATE TABLE note.users (
+	user_id		INT(11)			UNSIGNED NOT NULL AUTO_INCREMENT,
+	user_name	VARCHAR(255)	NOT NULL,
+	user_pass	VARCHAR(255)	NOT NULL,
 	
-	PRIMARY KEY (id)
+	PRIMARY KEY (user_id)
 );
 
-CREATE TABLE mx_usernote.notes (
-	id		INT(11)			UNSIGNED NOT NULL AUTO_INCREMENT,
-	user	INT(11)			UNSIGNED NOT NULL,
-	note	TEXT			NOT NULL,
-	date	DATETIME		NOT NULL,
+CREATE TABLE note.notes (
+	note_id		INT(11)			UNSIGNED NOT NULL AUTO_INCREMENT,
+	note_user	INT(11)			UNSIGNED NOT NULL,
+	note_note	TEXT			NOT NULL,
+	note_date	DATETIME		NOT NULL,
 
-	PRIMARY KEY (id),
-	FOREIGN KEY (user)
-		REFERENCES mx_usernote.users (id)
+	PRIMARY KEY (note_id),
+	FOREIGN KEY (note_user)
+		REFERENCES users (user_id)
 );

@@ -6,4 +6,4 @@ const SITE_TITLE = 'Note';
 const DB_HOST = 'localhost';
 const DB_USER = 'root';
 const DB_PASS = 'root';
-const DB_NAME = 'mx_usernote';
+const DB_NAME = 'note';

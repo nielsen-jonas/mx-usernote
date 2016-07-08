@@ -6,36 +6,36 @@
 class User
 {
 	/** @Id @Column(type="integer") @GeneratedValue **/
-	protected $id;
+	protected $user_id;
 
 	/** @Column(type="string") **/
-	protected $name;
+	protected $user_name;
 
 	/** @Column(type="string") **/
-	protected $pass;
+	protected $user_pass;
 
 	public function getId()
 	{
-		return $this->id;
+		return $this->user_id;
 	}
 
 	public function getName()
 	{
-		return $this->name;
+		return $this->user_name;
 	}
 
 	public function setName($name)
 	{
-		$this->name = $name;
+		$this->user_name = $name;
 	}
 
 	public function getPass()
 	{
-		return $this->pass;
+		return $this->user_pass;
 	}
 
 	public function setPass($pass)
 	{
-		$this->pass = $pass;
+		$this->user_pass = $pass;
 	}
 }

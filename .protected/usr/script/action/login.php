@@ -11,7 +11,7 @@ require_once USR_VENDOR . 'doctrine/bootstrap.php';
 
 // Get user
 $users = $entityManager->getRepository('User');
-$user = $users->findOneBy(['name' => $_REQUEST['user']]);
+$user = $users->findOneBy(['user_name' => $_REQUEST['user']]);
 
 // Check if user exist
 $err = 'Invalid username or password';

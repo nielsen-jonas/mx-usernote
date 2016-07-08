@@ -15,14 +15,14 @@ $err = 'Failed to get notes';
 
 // Check if user exists
 $users = $entityManager->getRepository('User');
-$user = $users->findOneBy(['name' => $user_name]);
+$user = $users->findOneBy(['user_name' => $user_name]);
 if (!isset($user)) {
 	exit($err);
 }
 
 // Get notes
 $all_notes = $entityManager->getRepository('Note');
-$usernotes = $all_notes->findByUser($user);
+$usernotes = $all_notes->findBy(['note_user' => $user]);
 
 $response = [];
 foreach($usernotes as $usernote) {

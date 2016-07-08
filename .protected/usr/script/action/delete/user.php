@@ -11,7 +11,7 @@ require_once USR_VENDOR . 'doctrine/bootstrap.php';
 
 // Check if user exists
 $users = $entityManager->getRepository('User');
-$user = $users->findOneBy(['name' => $_REQUEST['user']]);
+$user = $users->findOneBy(['user_name' => $_REQUEST['user']]);
 $err = 'Invalid username or password';
 if (!isset($user)) {
 	exit('Failed to deregister user: ' . $err);
@@ -24,7 +24,7 @@ if (!password_verify($_POST['password'], $user->getPass())) {
 
 // Remove notes
 $all_notes = $entityManager->getRepository('Note');
-$usernotes = $all_notes->findByUser($user);
+$usernotes = $all_notes->findBy(['note_user' => $user]);
 foreach($usernotes as $usernote) {
 	$entityManager->remove($usernote);
 }

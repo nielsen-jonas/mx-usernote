@@ -13,7 +13,7 @@ require_once USR_VENDOR . 'doctrine/bootstrap.php';
 
 // Get user
 $users = $entityManager->getRepository('User');
-$user = $users->findOneBy(['name' => $user_name]);
+$user = $users->findOneBy(['user_name' => $user_name]);
 
 // Get note
 $note = $entityManager->find('Note', $note_id);

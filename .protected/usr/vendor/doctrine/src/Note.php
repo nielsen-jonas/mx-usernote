@@ -6,52 +6,52 @@
 class Note
 {
 	/** @Id @Column(type="integer") @GeneratedValue **/
-	protected $id;
+	protected $note_id;
 
 	/**
 	 * @ManyToOne(targetEntity="User")
-	 * @JoinColumn(name="user", referencedColumnName="id")
+	 * @JoinColumn(name="note_user", referencedColumnName="user_id")
 	 **/
-	protected $user;
+	protected $note_user;
 
 	/** @Column(type="text") **/
-	protected $note;
+	protected $note_note;
 
 	/** @Column(type="datetime") **/
-	protected $date;
+	protected $note_date;
 
 	function getId()
 	{
-		return $this->id;
+		return $this->note_id;
 	}
 
 	function getUser()
 	{
-		return $this->user;
+		return $this->note_user;
 	}
 
 	function setUser($user)
 	{
-		$this->user = $user;
+		$this->note_user = $user;
 	}
 
 	function getNote()
 	{
-		return $this->note;
+		return $this->note_note;
 	}
 
 	function setNote($note)
 	{
-		$this->note = $note;
+		$this->note_note = $note;
 	}
 
 	function getDate()
 	{
-		return $this->date;
+		return $this->note_date;
 	}
 
 	function setDate($date)
 	{
-		$this->date = $date;
+		$this->note_date = $date;
 	}
 }
