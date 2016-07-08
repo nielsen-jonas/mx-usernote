@@ -1,11 +1,10 @@
 <?php
 
 //Abstract away website location for portability
-$directory = rtrim($_SERVER['PHP_SELF'], '/index.php');
+$directory = preg_replace('/\/index\.php$/', '', $_SERVER['PHP_SELF']);
 $request = $_SERVER['REQUEST_URI'];
 $request = preg_replace('/^' . preg_quote($directory, '/') . '/', '', $request);
-$protocol = explode('/', $_SERVER['SERVER_PROTOCOL']);
-$protocol = strtolower($protocol[0]);
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http' ;
 define('WEBSITE_DIRECTORY', $directory);
 define('WEBSITE_REQUEST', $request);
 define('WEBSITE_URL', $protocol . '://' . $_SERVER['HTTP_HOST'] . WEBSITE_DIRECTORY);
